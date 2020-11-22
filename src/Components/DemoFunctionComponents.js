@@ -5,7 +5,7 @@ import React from 'react'
 export default function DemoFunctionComponents() {
     return ( // Nội dung chứa trong lệnh return. Lưu ý: Nội dung phải được bao bọc bởi 1 thẻ
         <div className = "container bg-dark text-white">
-            <div className = "display-4 p-5" >
+            <div className = "display-4 p-5">
                 Components
             </div>
 
