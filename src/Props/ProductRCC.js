@@ -23,4 +23,6 @@ export default class ProductRCC extends Component {
 
         )
     }
+
+    
 }
