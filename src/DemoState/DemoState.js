@@ -5,7 +5,7 @@ export default class DemoState extends Component {
 
     // state là thuộc tính có sẵn của components => dùng để quản lý nguồn dữ liệu thay đổi trên giao diện khi người dùng thao tác (click, change, blur, ...)
     state = {
-        isLogin: false,
+        isLogin: true,
     }
 
     //isLogin = false;
