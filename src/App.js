@@ -14,6 +14,7 @@ import DemoProps from './Props/DemoProps';
 import ProductListRCC from './Props/ProductListRCC';
 import index from './Props/PropsWithEvent';
 import PropsWithEvent from './Props/PropsWithEvent';
+import BaiTapGioHangRedux from './BaiTapRedux/BaiTapGioHangRedux/BaiTapGioHangRedux';
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
       {/* <div className = "hinhAnhPhim">fdjkf</div> */}
       {/* <DemoProps/> */}
       {/* <ProductListRCC/>*/}
-      <PropsWithEvent/>
+      {/* <PropsWithEvent/> */}
+      <BaiTapGioHangRedux/>
     </div>
   );
 }

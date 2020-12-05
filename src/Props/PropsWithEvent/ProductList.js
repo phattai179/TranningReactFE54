@@ -9,14 +9,14 @@ export default class ProductList extends Component {
     state = {
         productDetail: productList[0],
         cart: [
-            {
-                "maSP": 1,
-                "tenSP": "VinSmart Live",
-                "donGia": 5700000,
-                "hinhAnh": "./img/vsphone.jpg",
-                "soLuong": 1,
+            // {
+            //     "maSP": 1,
+            //     "tenSP": "VinSmart Live",
+            //     "donGia": 5700000,
+            //     "hinhAnh": "./img/vsphone.jpg",
+            //     "soLuong": 1,
 
-            }
+            // }
         ]
     };
 
@@ -69,6 +69,46 @@ export default class ProductList extends Component {
 
     }
 
+    // Định nghĩa sự kiện xóa giỏ hàng tại nơi chứa state giỏ hàng
+    deleteItem = (maSPClick) => {
+        //console.log(maSP);
+        
+        // Tạo ra 1 giỏ hàng mới giống giá trị giỏ hàng cũ
+        let  gioHangCapNhat = [...this.state.cart];
+
+        // Xử lý xóa trên giỏ hàng mới 
+        let index = gioHangCapNhat.findIndex(spGH => spGH.maSP === maSPClick);
+
+        if(index !== -1){
+            gioHangCapNhat.splice(index,1);
+        }
+
+        this.setState({
+            cart: gioHangCapNhat
+        })
+        
+        // Gán lại giỏ hàng cũ bằng giỏ hàng mới 
+    }
+
+    // Định nghĩa hàm thay đổi số lượng tại nơi chứa state số lượng (số lượng nằm trong cart[])
+    tangGiamSoLuong = (maSPClick, soLuong) => {
+        //console.log(maSP, soLuong);
+        let gioHangCapNhat = [...this.state.cart];
+
+        // Tìm trong giỏ hàng có sản phẩm mã SP === với sản phẩm được click
+
+        let spGioHang = gioHangCapNhat.find(spGH => spGH.maSP === maSPClick)
+        // Tìm thấy sản phẩm trong giỏ hàng
+        if(spGioHang) {
+            spGioHang.soLuong += soLuong
+        }
+
+        // Cập nhật lại giỏ hàng
+        this.setState({
+            cart: gioHangCapNhat
+        })
+    }
+
     render() {
 
         const { productDetail, cart} = this.state
@@ -76,7 +116,7 @@ export default class ProductList extends Component {
         return (
             <div>
                 {/* import Modal vào ProductList */}
-                <Modal cart = {cart} />
+                <Modal tangGiamSoLuong = {this.tangGiamSoLuong} deleteItem = {this.deleteItem} cart = {cart} />
                 <div className="row">
                     {this.renderProductListHandler()}
 
