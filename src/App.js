@@ -12,6 +12,8 @@ import RenderWithMap from './RenderWithMap/RenderWithMap';
 import BaiTapRenderDanhSachPhim from './RenderWithMap/BaiTapRenderDanhSachPhim';
 import DemoProps from './Props/DemoProps';
 import ProductListRCC from './Props/ProductListRCC';
+import index from './Props/PropsWithEvent';
+import PropsWithEvent from './Props/PropsWithEvent';
 
 function App() {
   return (
@@ -26,7 +28,8 @@ function App() {
       {/* <BaiTapRenderDanhSachPhim/> */}
       {/* <div className = "hinhAnhPhim">fdjkf</div> */}
       {/* <DemoProps/> */}
-      <ProductListRCC/>
+      {/* <ProductListRCC/>*/}
+      <PropsWithEvent/>
     </div>
   );
 }
